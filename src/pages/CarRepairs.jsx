@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const CarRepairs = () => {
+const CarRepairs = () => {
     return (
         <div>CarRepairs</div>
     )
 }
+
+export default CarRepairs
