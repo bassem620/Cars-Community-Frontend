@@ -24,7 +24,7 @@ code {
   /* background-color: rgb(208, 208, 208); */
   width: 98%;
   min-height: 80vh;
-  max-height: 100vh;
+  /* max-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@ code {
   justify-content: space-between;
   padding: 20px;
   /* height: 100%; */
-  width: 94%;
+  width: 98%;
   backdrop-filter: blur(15px);
   /* background-color: rgba(239, 239, 239, 0.368); */
   border-radius: 5px;
@@ -62,3 +62,52 @@ code {
   font-weight: 500;
   font-size: 21px;
 }
+
+.events{
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.events-container{
+  display: flex;
+  /* background-color: red; */
+  width: 96%;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.event{
+width: 300px;
+height: 350px;
+/* background-color: black; */
+border-radius: 10px;
+box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.5);
+margin: 5px;
+background-image: url("https://w0.peakpx.com/wallpaper/867/42/HD-wallpaper-stancenation-car-vehicle-portrait-display-fifteen52.jpg");
+background-position: center;
+background-size: 100%;
+background-repeat: no-repeat;
+}
+.events-event-inf{
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.245);
+  backdrop-filter: blur(10px);
+  color: white;
+  top: 280px;
+  height: 70px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: ease-in-out;
+  transition-duration: .5s;
+  cursor: pointer;
+  border-radius: 0px 0px 15px 15px;
+}
+.event:hover .events-event-inf{
+ opacity: 1;
+  }
