@@ -16,29 +16,29 @@ import NewsInfo from './pages/NewsInfo';
 import Footer from './components/Footer';
 
 function App() {
-  return (
-    <>
-    {/* Nav */}
-    <Nav />
-    {/* Routes */}
-    <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/search" element={<Search />}/>
-        <Route path="/book-appointment" element={<BookAppointment />}/>
-        <Route path="/car-repair" element={<CarRepairs />} />
-        <Route path="/compare" element={<Compare />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/events/:id" element={<EventInfo />} />
-        <Route path="/item/:id" element={<ItemView />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/news/:id" element={<NewsInfo />} />
-    </Routes>
-    {/* Footer */}
-    <Footer />
-</>
-  );
+    return (
+        <>
+        {/* Nav */}
+        <Nav />
+        {/* Routes */}
+        <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/search" element={<Search />}/>
+            <Route path="/book-appointment" element={<BookAppointment />}/>
+            <Route path="/car-repair" element={<CarRepairs />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/:id" element={<EventInfo />} />
+            <Route path="/item/:id" element={<ItemView />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/news/:id" element={<NewsInfo />} />
+        </Routes>
+        {/* Footer */}
+        <Footer />
+        </>
+    );
 }
 
 export default App;
