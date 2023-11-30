@@ -116,12 +116,9 @@ background-repeat: no-repeat;
       width: 300px;
       overflow: hidden;
       box-shadow: 0px 0px 15px -5px;
-      transition: 0.5s;
-      animation: ease-in-out;
       background-color: rgb(85, 83, 83);
     }
     .cars-container :hover{
-      transform: scale(1.1);
       box-shadow: 0px 0px 15px 0px;
     }
     .image-container img{
@@ -136,13 +133,12 @@ background-repeat: no-repeat;
      h3,p{
       margin: 0;
       padding: 0;
+      color: aliceblue;
      }  
+    
     .btn button{
       padding: 0.5rem;
-      background-color: yellow;
+      background-color: rgb(241, 241, 7);
+      animation: ease-in;
     }
-    a{
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-    }
+   

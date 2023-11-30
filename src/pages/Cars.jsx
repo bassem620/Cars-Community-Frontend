@@ -15,7 +15,7 @@ function cars({title,imageurl,price}) {
                 </div>
                 <div className='btn'>
                     <button>
-                            view info 
+                          view info  
                     </button>
                 </div>
             </div>

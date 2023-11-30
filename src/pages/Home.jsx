@@ -5,9 +5,9 @@ const Home = () => {
         <div className='home'>
             <h4>Cars</h4>
             <Cars 
-                title="car name"
+                title="toktok"
                 imageurl="https://mir-s3-cdn-cf.behance.net/projects/404/940816156947497.Y3JvcCwxMjA3LDk0NCwyMTIsODk.jpg"
-                price="price"
+                price="100000 L.E."
             />
         </div>
     )
