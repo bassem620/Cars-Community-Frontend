@@ -35,7 +35,7 @@ const Nav = () => {
       </ul>
       <form class="d-flex" role="search">
         
-        <a class="badge nav-link disabled mt-2 "></a>
+        <Link class="badge nav-link disabled mt-2 "></Link>
         <Link class="btn btn-outline-success mx-2" to="/sign-in">Login </Link>
       </form>
     </div>
