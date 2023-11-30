@@ -118,6 +118,7 @@ background-repeat: no-repeat;
       box-shadow: 0px 0px 15px -5px;
       transition: 0.5s;
       animation: ease-in-out;
+      background-color: rgb(85, 83, 83);
     }
     .cars-container :hover{
       transform: scale(1.1);
@@ -126,6 +127,7 @@ background-repeat: no-repeat;
     .image-container img{
      overflow: hidden;
      height: 200px;
+     width: 300px;
     }
     .card-content{
       margin: 1rem;
