@@ -10,7 +10,7 @@ import CarRepairs from './pages/CarRepairs';
 import Compare from './pages/Compare';
 import Events from './pages/Events';
 import EventInfo from './pages/EventInfo';
-import ItemView from './pages/ItemView';
+import CarView from './pages/CarView';
 import News from './pages/News';
 import NewsInfo from './pages/NewsInfo';
 import Footer from './components/Footer';
@@ -31,7 +31,7 @@ function App() {
             <Route path="/compare" element={<Compare />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<EventInfo />} />
-            <Route path="/cars/:id" element={<ItemView />} />
+            <Route path="/cars/:id" element={<CarView />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<NewsInfo />} />
         </Routes>
