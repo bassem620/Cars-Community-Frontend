@@ -1,46 +1,37 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 const Events = () => {
+    const [events, setEvents] = useState(null);
+
+    useEffect( _ => {
+        axios.get("https://cars-community-backend.onrender.com/events/all")
+            .then( res => setEvents(res.data.data))
+            .catch( err => console.log(err));
+    }, [])
+
+
     return (
         <div className='events'>
             <h4>Events</h4>
             <div className="events-container">
-                <div className='event'>
-                    <div className="events-event-inf">
-                        <h4>Sheraton Event</h4>
-                        <p>3 October 2023</p>
+                {
+                    events && events.length > 0 ?
+                    <div className='event'>
+                        {
+                            events.map(event => {
+                                return (
+                                    <div className="events-event-inf" key={event._id}>
+                                        <h4>{event.title}</h4>
+                                        <span>{event.location}</span>
+                                        <p>{event.date}</p>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-                </div>
-                <div className='event'>
-                    <div className="events-event-inf">
-                        <h4>Sheraton Event</h4>
-                        <p>3 October 2023</p>
-                    </div>
-                </div>
-                <div className='event'>
-                    <div className="events-event-inf">
-                        <h4>Sheraton Event</h4>
-                        <p>3 October 2023</p>
-                    </div>
-                </div>
-                <div className='event'>
-                    <div className="events-event-inf">
-                        <h4>Sheraton Event</h4>
-                        <p>3 October 2023</p>
-                    </div>
-                </div>
-                <div className='event'>
-                    <div className="events-event-inf">
-                        <h4>Sheraton Event</h4>
-                        <p>3 October 2023</p>
-                    </div>
-                </div>
-                <div className='event'>
-                    <div className="events-event-inf">
-                        <h4>Sheraton Event</h4>
-                        <p>3 October 2023</p>
-                    </div>
-                </div>
+                    : <h3 className='text-center'>No events found</h3>
+                }
             </div>
         </div>
     )
