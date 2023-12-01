@@ -31,7 +31,7 @@ function App() {
             <Route path="/compare" element={<Compare />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<EventInfo />} />
-            <Route path="/item/:id" element={<ItemView />} />
+            <Route path="/cars/:id" element={<ItemView />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<NewsInfo />} />
         </Routes>
