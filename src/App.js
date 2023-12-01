@@ -6,7 +6,6 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Search from './pages/Search';
 import BookAppointment from './pages/BookAppointment';
-import CarRepairs from './pages/CarRepairs';
 import Compare from './pages/Compare';
 import Events from './pages/Events';
 import EventInfo from './pages/EventInfo';
@@ -23,11 +22,10 @@ function App() {
         {/* Routes */}
         <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/login" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/search" element={<Search />}/>
             <Route path="/book-appointment" element={<BookAppointment />}/>
-            <Route path="/car-repair" element={<CarRepairs />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<EventInfo />} />

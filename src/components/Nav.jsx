@@ -13,13 +13,10 @@ const Nav = () => {
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav m-auto mb-2 mb-md-0">
                     <li className="nav-item">
-                        <Link className="nav-link active" aria-current="page" to="/home">Cars</Link>
+                        <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" aria-current="page" to="/book-appointment">Book Appointment</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" aria-current="page" to="/car-repair">Car Repairs</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" aria-current="page" to="/events">Events</Link>
@@ -30,7 +27,7 @@ const Nav = () => {
                 </ul>
                 <form className="d-flex" role="search">
                     <Link className="badge nav-link disabled mt-2 "></Link>
-                    <Link className="btn btn-outline-success mx-2" to="/sign-in">Login </Link>
+                    <Link className="btn btn-outline-success mx-2" to="/login">Login </Link>
                 </form>
                 </div>
             </div>
