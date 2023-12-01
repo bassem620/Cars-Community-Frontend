@@ -1,18 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    font-family: 'Fira Sans', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Raleway', sans-serif !important;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 .navbar{
     background-color: rgb(41, 41, 41);
     color: white;
@@ -21,10 +14,8 @@ code {
 
 .view-item{
     margin: 20px auto;
-    /* background-color: rgb(208, 208, 208); */
     width: 98%;
     min-height: 80vh;
-    /* max-height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,14 +24,11 @@ code {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    /* height: 100%; */
     width: 98%;
     backdrop-filter: blur(15px);
-    /* background-color: rgba(239, 239, 239, 0.368); */
     border-radius: 5px;
 }
 .view-item-img{
-    /* background-color: blue; */
     width: 44%;
     height: 450px;
     border-radius:15px;
@@ -71,7 +59,6 @@ code {
 }
 .events-container{
     display: flex;
-    /* background-color: red; */
     width: 96%;
     height: auto;
     flex-wrap: wrap;
@@ -81,11 +68,10 @@ code {
 .event{
     width: 300px;
     height: 350px;
-    /* background-color: black; */
     border-radius: 10px;
     box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.5);
     margin: 5px;
-    background-image: url("https://w0.peakpx.com/wallpaper/867/42/HD-wallpaper-stancenation-car-vehicle-portrait-display-fifteen52.jpg");
+    background-image: url("../src/assets/HD-wallpaper-stancenation-car-vehicle-portrait-display-fifteen52.jpg");
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
