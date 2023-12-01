@@ -7,7 +7,7 @@ const Footer = () => {
                 <Link to="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                     <svg class="bi" width="30" height="24"></svg>
                 </Link>
-                <span class="mb-3 mb-md-0 text-light fs-6">vomvom ,inc</span>
+                <span class="mb-3 mb-md-0 text-light fs-6">Cars Community ,inc</span>
             </div>
         </footer>
     )
