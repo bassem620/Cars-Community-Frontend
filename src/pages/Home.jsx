@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Cars from './CarBox'
+import Cars from '../components/CarBox'
 import axios from 'axios'
 
 const Home = () => {
