@@ -75,7 +75,7 @@ const BookAppointment = () => {
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 <hr />
                 {/* My Appointments */}
-                <h2>Existing Bookings</h2>
+                <h2>{existingBookings.length > 0 ? "Existing Bookings" : "No booked appointments"}</h2>
                 <ul>
                 {
                     existingBookings?.map((booking, index) => (
