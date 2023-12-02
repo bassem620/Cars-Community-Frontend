@@ -4,6 +4,7 @@ body {
     font-family: 'Roboto', sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #e6e6e6 !important;
 }
 
 .navbar{

@@ -11,7 +11,6 @@ import Events from './pages/Events';
 import EventInfo from './pages/EventInfo';
 import CarView from './pages/CarView';
 import News from './pages/News';
-import NewsInfo from './pages/NewsInfo';
 import Footer from './components/Footer';
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
             <Route path="/events/:id" element={<EventInfo />} />
             <Route path="/cars/:id" element={<CarView />} />
             <Route path="/news" element={<News />} />
-            <Route path="/news/:id" element={<NewsInfo />} />
         </Routes>
         {/* Footer */}
         <Footer />
