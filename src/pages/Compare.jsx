@@ -2,7 +2,7 @@ import React from 'react'
 
 const Compare = () => {
     return (
-        <div>Compare</div>
+        <div className='compare'>Compare</div>
     )
 }
 

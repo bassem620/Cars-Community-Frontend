@@ -7,6 +7,19 @@ body {
     background-color: #e6e6e6 !important;
 }
 
+.home,
+.favorites,
+.events,
+.booking-container,
+.compare,
+.eventInfo,
+.news,
+.search,
+.login,
+.signUp {
+    min-height: calc(100vh - 60px - 60px);
+}
+
 .navbar{
     background-color: rgb(41, 41, 41);
     color: white;
@@ -131,6 +144,7 @@ h3,p{
 }
 
 footer{
+    height: 60px;
     position: relative !important;
     bottom: 0 !important;
 }
