@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import {useParams} from "react-router-dom"
-import image from "./images/Resized-copy-1.jpg"
+import image from "../assets/Resized-copy-1.jpg"
 
 const EventInfo = () => {
   const [eventInfo, setEventInfo] = useState([]);
@@ -16,7 +16,7 @@ const EventInfo = () => {
       )
       .then((res) => setEventInfo(res.data.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
 
   const [dateAndTime, setDateAndTime] = useState(null);
