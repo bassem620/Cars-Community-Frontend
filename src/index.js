@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import './eventsInfo.css';
+import './BookingPage.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
