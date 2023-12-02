@@ -22,9 +22,11 @@ const News = () => {
     return (
         <div className='news container-lg'>
             <h3 className='text-center m-3'>News</h3>
-            {news.map(item => (
-                <NewsItem key={item.id} title={item.title} body={item.body} imageUrl={car}/>
-            ))}
+            <div className='row'>
+                {news.map(item => (
+                    <NewsItem key={item.id} title={item.title} body={item.body} imageUrl={car}/>
+                ))}
+            </div>
         </div>
     );
 };
