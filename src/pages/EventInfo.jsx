@@ -4,14 +4,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import axios from "axios";
+import {useParams} from "react-router-dom"
 
 const EventInfo = () => {
   const [eventInfo, setEventInfo] = useState([]);
+  const {id} = useParams();
 
   useEffect((_) => {
     axios
       .get(
-        "https://cars-community-backend.onrender.com/events/656689d90b7e386339f52db3"
+        "https://cars-community-backend.onrender.com/events/"+id
       )
       .then((res) => setEventInfo(res.data.data))
       .catch((err) => console.log(err));

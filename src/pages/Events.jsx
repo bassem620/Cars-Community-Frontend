@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Events = () => {
     const [events, setEvents] = useState(null);
@@ -21,12 +22,17 @@ const Events = () => {
                         {
                             events.map(event => {
                                 return (
-                                    <div className="events-event-inf" key={event._id}>
-                                        <h4>{event.title}</h4>
-                                        <span>{event.location}</span>
-                                        <p>{event.date}</p>
+                                  <Link to={"/events/" + event._id}>
+                                    <div
+                                      className="events-event-inf"
+                                      key={event._id}
+                                    >
+                                      <h4>{event.title}</h4>
+                                      <span>{event.location}</span>
+                                      <p>{event.date}</p>
                                     </div>
-                                )
+                                  </Link>
+                                );
                             })
                         }
                     </div>
