@@ -37,14 +37,14 @@ const EventInfo = () => {
 	const [timeLeft, setTimeLeft] = useState(() => getTimeLeft());
 
 	useEffect(() => {
-		const timer = setInterval(() => {
-			setTimeLeft(getTimeLeft());
-		}, 1000);
+    const timer = setInterval(() => {
+      setTimeLeft(getTimeLeft());
+    }, 1000);
 
-		return () => {
-			clearInterval(timer);
-		};
-	}, []);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [dateAndTime]);
 
   return (
     <div className="eventInfo">
