@@ -20,18 +20,16 @@ const Events = () => {
                     events && events.length > 0 ?
                         events.map(event => {
                             return (
-                                <div className='event my-4'>
-                                    <Link to={"/events/" + event._id}>
-                                        <div
-                                        className="events-event-inf"
-                                        key={event._id}
-                                        >
-                                        <h4>{event.title}</h4>
-                                        <span>{event.location}</span>
-                                        <p>{event.date}</p>
-                                        </div>
-                                    </Link>
-                                </div>
+                                <Link className='event my-4 text-decoration-none' to={"/events/" + event._id}>
+                                    <div
+                                    className="events-event-inf"
+                                    key={event._id}
+                                    >
+                                    <h4>{event.title}</h4>
+                                    <span>{event.location}</span>
+                                    <p>{event.date}</p>
+                                    </div>
+                                </Link>
                             );
                         })
                     : <h3 className='text-center'>No events found</h3>
