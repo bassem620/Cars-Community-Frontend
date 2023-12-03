@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Cars from '../components/CarBox'
 import axios from 'axios'
+import { baseUrl } from '../constants/constants';
 
 const Home = () => {
     const [cars, setCars] = useState(null);
 
     useEffect( _ => {
-        axios.get("https://cars-community-backend.onrender.com/cars/all")
+        axios.get(baseUrl + "/cars/all")
             .then( res => setCars(res.data.data))
             .catch( err => console.log(err));
     }, [])
@@ -27,7 +28,7 @@ const Home = () => {
                         />
                     })
                     :
-                    <h3 className='text-center'>No cars found</h3>
+                    <h4 className='text-center'>{cars === null ? "Loading..." : "No cars found"}</h4>
                 }
             </div>
         </div>

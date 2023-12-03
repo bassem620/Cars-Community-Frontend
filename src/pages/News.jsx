@@ -1,31 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import NewsItem from '../components/NewsItem';
-import car from "../assets/0x0.jpg.webp"; 
+import { baseUrl } from "../constants/constants";
+import axios from 'axios';
 
 const News = () => {
-    const [news, setNews] = useState([]);
+    const [news, setNews] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-                const data = await response.json();
-                setNews(data.slice(0, 8));
-            } catch (error) {
-                console.error('Error fetching news data:', error);
-            }
-        };
-
-        fetchData();
-    }, []);
+    useEffect( _ => {
+        axios.get(baseUrl + "/news/all")
+            .then( res => setNews(res.data.data))
+            .catch( err => console.log(err));
+    }, [])
 
     return (
         <div className='news container-lg'>
             <h3 className='text-center m-3'>News</h3>
             <div className='row'>
-                {news.map(item => (
-                    <NewsItem key={item.id} title={item.title} body={item.body} imageUrl={car}/>
-                ))}
+                {
+                    news && news.length > 0 ?
+                    news.map(item => (
+                        <NewsItem 
+                            key={item.id}
+                            title={item.title}
+                            body={item.desc}
+                            imageUrl={item.image}
+                            date={item.createdAt}
+                        />
+                    )) :
+                    <h4 className='text-center'>{news === null ? "Loading..." : "No news found"}</h4>
+                }
             </div>
         </div>
     );
