@@ -95,22 +95,19 @@ body {
     background-color: rgba(0, 0, 0, 0.245);
     backdrop-filter: blur(10px);
     color: white;
-    top: 280px;
+    top: 250px;
     height: 100px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    opacity: 0;
+    opacity: 1;
     transition: ease-in-out;
     transition-duration: .5s;
     cursor: pointer;
     border-radius: 0px 0px 15px 15px;
-}
-
-.events-event-inf{
-    opacity: 1;
+    border: solid red 1px;
 }
 
 .cars-container{
