@@ -139,6 +139,51 @@ h3,p{
     animation: ease-in;
 }
 
+.compare{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0px;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+.compare-part{
+    display: flex;
+    width: 45%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.442);
+    border-radius: 10px;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.5);
+}
+.compare-part-img{
+    /* height: 350px; */
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.5);
+}
+
+.compare-part-info{
+    width: 94%;
+    height: -webkit-fill-available;
+    margin: 10px 0px;
+    overflow: overlay;
+    box-shadow: inset 0px 0px 15px -5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+}
+.compare-title{
+  font-weight: bold;
+  font-size: 42px;
+  transform: rotate(270deg);
+  margin: -20px;
+}
+
 footer{
     height: 60px;
     position: relative !important;
