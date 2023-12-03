@@ -107,7 +107,6 @@ body {
     transition-duration: .5s;
     cursor: pointer;
     border-radius: 0px 0px 15px 15px;
-    border: solid red 1px;
 }
 
 .cars-container{
