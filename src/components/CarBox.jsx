@@ -9,7 +9,17 @@ function cars({id, title,imageurl,price}) {
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text text-dark">{price} L.E.</p>
-                <Link to={`/cars/${id}`} className="btn btn-primary">View Info</Link>
+                <div className='d-flex justify-content-between'>
+                   <Link to={`/cars/${id}`} className="btn btn-primary">View Info</Link>
+                            {/* Favourite SVG */}
+                            <button className='favourite-button btn'>
+                                ⭐
+                                {/* ob2o 8yro L Star Deh B wa7da SVG */}
+                            </button>
+                        
+                            {/* Favourite SVG */}
+                </div>
+                
             </div>
         </div>
     </div>

@@ -184,6 +184,21 @@ h3,p{
   margin: -20px;
 }
 
+.favourite-button{
+    /* background-color: rgb(228, 228, 228)!important; */
+    border-radius: 100% !important;
+    width: 40px!important;
+    height: 40px!important;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.365)!important;
+    display:flex!important ;
+    justify-content:center!important ;
+    align-items:center!important;
+}
+.favourite-button svg{
+    font-size: 100px !important;
+    color: green !important;
+}
+
 footer{
     height: 60px;
     position: relative !important;
