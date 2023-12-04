@@ -27,7 +27,7 @@ const CarView = () => {
                 <span className='view-item-price my-3'>
                     Price : <span className='text-danger'>{car.price} L.E.</span>
                 </span>
-                <Link to="/compare"><button className='btn btn-dark my-1'>Compare</button></Link>
+                <Link to={"/compare/"+car._id}><button className='btn btn-dark my-1'>Compare</button></Link>
             </div>
             </div>
         </div>

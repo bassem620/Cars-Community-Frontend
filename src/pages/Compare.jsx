@@ -1,15 +1,53 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 const Compare = () => {
+    const {car1} = useParams();
+    const url="https://cars-community-backend.onrender.com/cars/"+car1;
+    const [cars,Setcars]=useState({});
+    const [isloading,setisloading]=useState(true);
+    
+
+    useEffect(
+        ()=>{
+            axios.get(url).then(
+                (Response) =>{
+                    Setcars(Response.data);
+                    setisloading(false);
+                }).catch(function(Error){
+                    console.log(Error.Response);
+                })
+        },[]
+    )
+
     return (
         <div className='compare'>
-
-            <div className="compare-part">
-                    <img src='https://images.hgmsites.net/lrg/2023-dodge-charger_100853233_l.jpg' className="compare-part-img"/>
+            {
+                isloading==true?
+                <div className="compare-part">
+                    <div className="compare-part-img"><h4>Loading...</h4></div>
+                    <h5 className='my-2'>Loading...</h5>
                     <div className="compare-part-info">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem odio eaque maiores quia, ad quae, quaerat nisi pariatur quas itaque quis labore reiciendis, eos vero debitis perspiciatis omnis! Deleniti, doloremque!
+                    Loading...
                     </div>
             </div>
+                :
+                <div className="compare-part">
+                    <img src={cars.data.image} className="compare-part-img"/>
+                    <h5 className='my-2'>{cars.data.title}</h5>
+                    <div className="compare-part-info">
+                    {cars.data.desc}
+                    </div>
+            </div>
+            }
+            {/* <div className="compare-part">
+                    <img src={cars.data.image} className="compare-part-img"/>
+                    <h5 className='my-2'>{cars.data.title}</h5>
+                    <div className="compare-part-info">
+                    {cars.data.desc}
+                    </div>
+            </div> */}
 
             <span className='compare-title'>Compare</span>
             
