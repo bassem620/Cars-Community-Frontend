@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import {useParams} from "react-router-dom"
-import image from "../assets/Resized-copy-1.jpg"
+import image from "../assets/DSC07349_zikwky.jpg"
+import image1 from "../assets/images.jpg";
 
 const EventInfo = () => {
   const [eventInfo, setEventInfo] = useState([]);
@@ -27,11 +28,17 @@ const EventInfo = () => {
 
     const getTimeLeft = () => {
       const totalTimeLeft = eventDate - new Date();
-      const days = Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((totalTimeLeft / (1000 * 60)) % 60);
-      const seconds = Math.floor((totalTimeLeft / 1000) % 60);
-      return { days, hours, minutes, seconds };
+      var days = Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24);
+      var minutes = Math.floor((totalTimeLeft / (1000 * 60)) % 60);
+      var seconds = Math.floor((totalTimeLeft / 1000) % 60);
+      if (seconds < 0){
+        days="00";
+        hours="00";
+        minutes="00";
+        seconds="00";
+      }
+        return { days, hours, minutes, seconds };
     };
     
 	const [timeLeft, setTimeLeft] = useState(() => getTimeLeft());
@@ -121,7 +128,7 @@ const EventInfo = () => {
                 </h2>
               </div>
             </div>
-            <img src={image} alt="123" className="m-2 float-end col" />
+            <img src={image1} alt="123" className="m-2 float-end col" />
           </div>
         </div>
       </div>
