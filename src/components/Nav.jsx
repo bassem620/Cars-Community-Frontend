@@ -25,12 +25,18 @@ const Nav = () => {
                     <li className="nav-item">
                         <Link className="nav-link" aria-current="page" to="/home">Home</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" aria-current="page" to="/favorites">Favorites</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" aria-current="page" to="/book-appointment">Book Appointment</Link>
-                    </li>
+                    {
+                        logged &&
+                        <li className="nav-item">
+                            <Link className="nav-link" aria-current="page" to="/favorites">Favorites</Link>
+                        </li>
+                    }
+                    {
+                        logged &&
+                        <li className="nav-item">
+                            <Link className="nav-link" aria-current="page" to="/book-appointment">Book Appointment</Link>
+                        </li>
+                    }
                     <li className="nav-item">
                         <Link className="nav-link" aria-current="page" to="/events">Events</Link>
                     </li>
@@ -39,7 +45,6 @@ const Nav = () => {
                     </li>
                 </ul>
                 <form className="d-flex" role="search">
-                    <Link className="badge nav-link disabled mt-2 "></Link>
                     <Link className="btn btn-outline-success mx-2" onClick={handleLogout} to="/login">{logged ? "Logout" : "Login"}</Link>
                 </form>
                 </div>

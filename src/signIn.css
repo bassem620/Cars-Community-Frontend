@@ -12,7 +12,7 @@ h1{
 
 .box {
     width: 400px;
-    height: 300px;
+    height: fit-content;
     backdrop-filter: blur(9px);
     border: solid #ffffff 1px; 
     border-radius: 10px; 

@@ -8,8 +8,10 @@ import "bootstrap/dist/css/bootstrap.css";
 
 const SignIn = () => {
    const navigate = useNavigate();
-   const [email ,setEmail ] = useState('')
-   const [password ,setPassword ] = useState('')
+   const [email ,setEmail ] = useState('');
+   const [password ,setPassword ] = useState('');
+   const [loading, setLoading] = useState(false);
+   const [error, setError] = useState('');
 
    useEffect( () => {
       if (localStorage.getItem("user")) {
@@ -18,12 +20,14 @@ const SignIn = () => {
    })
 
    const handleLogIn = () => {
+      setLoading(true);
       axios.post(baseUrl + "/user/sign-in", {email, password})
          .then( res => {
             localStorage.setItem("user", JSON.stringify(res.data.data));
             window.location.reload();
          })
-         .catch( err => console.log(err));
+         .catch( err => setError(err.response.data.message))
+         .finally( () => setLoading(false))
    }
 
    return (   
@@ -56,8 +60,10 @@ const SignIn = () => {
                   onChange={(e) => setPassword(e.target.value)}
                />
             </div>
+            {/* Error message */}
+            {error && <p className='text-danger fw-bold text-center'>{error}</p>}
             {/* Buttons */}
-            <button className='btn btn-primary w-100' onClick={handleLogIn}>log In</button>
+            <button className='btn btn-primary w-100' onClick={handleLogIn}>{loading ? "Loading.." : "Log in"}</button>
             <hr className='border-3 text-light' />
             <Link className='btn btn-outline-success w-100' to="/sign-up">Sign Up</Link>
          </div> 
