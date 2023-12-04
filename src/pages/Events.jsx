@@ -40,7 +40,7 @@ const Events = () => {
                         <h4>No Events</h4> :
                         Events.data.map(
                             (Event)=>(
-                                <Link className='event my-4 text-decoration-none' to={"/events/" + Event._id}>
+                                <Link className='event my-4 text-decoration-none' key={Event._id} to={"/events/" + Event._id}>
                                     <div className="events-event-inf" key={Event._id}>
                                         <h5>{Event.title}</h5>
                                         <span>{Event.location}</span>

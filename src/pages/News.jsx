@@ -20,7 +20,7 @@ const News = () => {
                     news && news.length > 0 ?
                     news.map(item => (
                         <NewsItem 
-                            key={item.id}
+                            key={item._id}
                             title={item.title}
                             body={item.desc}
                             imageUrl={item.image}
