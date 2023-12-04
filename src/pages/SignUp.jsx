@@ -22,13 +22,23 @@ const SignUp = () => {
   const handleLogIn = () => {
     setLoading(true);
     axios
-      .post(baseUrl + "/user/sign-in", { email, password })
+      .post(baseUrl + "/user/sign-up", {
+        firstName: Fn,
+        lastName: Ls,
+        email,
+        password,
+      })
       .then((res) => {
         localStorage.setItem("user", JSON.stringify(res.data.data));
         window.location.reload();
       })
-      .catch((err) => setError(err.response.data.message))
+      .catch((err) =>
+        /* setError(err.response.data.message) */ console.log(
+          err.response.data.message
+        )
+      )
       .finally(() => setLoading(false));
+      
   };
 
   return (
