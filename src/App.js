@@ -28,7 +28,7 @@ function App() {
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/search" element={<Search />}/>
             <Route path="/book-appointment" element={<BookAppointment />}/>
-            <Route path="/compare" element={<Compare />} />
+            <Route path="/compare/:car1/:car2" element={<Compare />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<EventInfo />} />
             <Route path="/cars/:id" element={<CarView />} />
