@@ -1,8 +1,18 @@
-import React from 'react'
-import '../index.css';
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
+import '../index.css';
+
 const Nav = () => {
+    const [logged, setLogged] = useState(localStorage.getItem("user"));
+
+    const handleLogout = () => {
+        if(logged) {
+            localStorage.removeItem("user");
+            setLogged(false);
+        }
+    }
+
     return (
         <nav className="navbar navbar-expand-md navbar-dark">
             <div className="container-fluid">
@@ -30,7 +40,7 @@ const Nav = () => {
                 </ul>
                 <form className="d-flex" role="search">
                     <Link className="badge nav-link disabled mt-2 "></Link>
-                    <Link className="btn btn-outline-success mx-2" to="/login">Login </Link>
+                    <Link className="btn btn-outline-success mx-2" onClick={handleLogout} to="/login">{logged ? "Logout" : "Login"}</Link>
                 </form>
                 </div>
             </div>
