@@ -16,7 +16,8 @@ body {
 .news,
 .search,
 .login,
-.signUp {
+.signUp,
+.admin {
     min-height: calc(100vh - 60px - 60px);
 }
 
