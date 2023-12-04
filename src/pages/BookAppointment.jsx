@@ -1,26 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
+import { baseUrl } from '../constants/constants';
+import axios from 'axios';
+import moment from 'moment';
 
 const BookAppointment = () => {
-    const [name, setName] = useState('');
+    const user = JSON.parse(localStorage.getItem('user'));
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
-    const [existingBookings, setExistingBookings] = useState([]);
+    const [existingBookings, setExistingBookings] = useState(null);
     const [error, setError] = useState(null);
 
+    useEffect( () => {
+        axios.post(baseUrl + "/appointments/myAppointments", {userId: user._id})
+            .then( res => setExistingBookings(res.data.data))
+            .catch( err => console.log(err.response.data.message));
+    })
+
     const handleBooking = () => {
-        if (!name || !selectedDate || !selectedTime) {
+        if (!selectedDate || !selectedTime) {
             setError('Please fill in all fields.');
             return;
         }
-        const newBooking = `${selectedDate.toDateString()} at ${selectedTime.toLocaleTimeString()} - ${name}`;
-        setExistingBookings((prevBookings) => [...prevBookings, newBooking]);
-        // Clear the form fields
-        setName('');
+        // Merge Date and time
+        const desiredYear = selectedDate.getFullYear();
+        const desiredMonth = selectedDate.getMonth();
+        const desiredDay = selectedDate.getDate();
+        const newDate = new Date(desiredYear, desiredMonth, desiredDay);
+        newDate.setHours(selectedTime.getHours());
+        newDate.setMinutes(selectedTime.getMinutes());
+        newDate.setSeconds(selectedTime.getSeconds());
+        // Convert date format to mongoDB DateTime format
+        const momentInstance = moment(newDate, 'ddd MMM DD YYYY HH:mm:ss ZZ');
+        const dateValue = momentInstance.format('YYYY-MM-DDTHH:mm:ss.SSS+00:00');
+        // Submit
+        axios.post(baseUrl + "/appointments/addAppointment", {userId: user._id, date: dateValue})
+            .then( _ => window.location.reload())
+            .catch( err => setError(err.response.data.message));
+        // Reset 
         setSelectedDate(null);
         setSelectedTime(null);
         setError(null);
     };
+
+    function getDayName(date = new Date(), locale = 'en-US') {
+        return date.toLocaleDateString(locale, {weekday: 'long'}) +" - "+ date.toLocaleDateString(locale, {month: 'short', day: '2-digit'})+" - "+ date.toLocaleDateString(locale, {year: "numeric"}) +" - "+ date.toLocaleTimeString(locale, {hour: 'numeric', minute: '2-digit'});    }
 
     return (
         <div className="booking-container">
@@ -31,12 +55,6 @@ const BookAppointment = () => {
             <div className="booking-content">
                 {/* Form */}
                 <form>
-                    {/* Name */}
-                    <label>
-                        Name&nbsp;
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                    </label>
-                    <br />
                     {/* Date */}
                     <label>
                         Date&nbsp;
@@ -74,11 +92,12 @@ const BookAppointment = () => {
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 <hr />
                 {/* My Appointments */}
-                <h2>{existingBookings.length > 0 ? "Existing Bookings" : "No booked appointments"}</h2>
+                <h2>{existingBookings && existingBookings.length > 0 ? "Existing Bookings" : "No booked appointments"}</h2>
                 <ul>
                 {
-                    existingBookings?.map((booking, index) => (
-                        <li key={index}>{booking}</li>
+                    existingBookings &&
+                    existingBookings.map((booking, index) => (
+                        <li key={index}>{getDayName(new Date(booking.date))}</li>
                     ))
                 }
                 </ul>
