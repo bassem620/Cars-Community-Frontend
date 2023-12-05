@@ -27,13 +27,13 @@ const Nav = () => {
                         <Link className="nav-link" aria-current="page" to="/home">Home</Link>
                     </li>
                     {
-                        logged &&
+                        logged && user.role === "user" &&
                         <li className="nav-item">
                             <Link className="nav-link" aria-current="page" to="/favorites">Favorites</Link>
                         </li>
                     }
                     {
-                        logged &&
+                        logged && user.role === "user" &&
                         <li className="nav-item">
                             <Link className="nav-link" aria-current="page" to="/book-appointment">Book Appointment</Link>
                         </li>
