@@ -26,6 +26,7 @@ const Favorites = () => {
                             title={car.title}
                             imageurl={car.image}
                             price={car.price}
+                            liked={true}
                         />
                     })
                     :

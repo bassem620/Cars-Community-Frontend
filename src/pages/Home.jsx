@@ -4,13 +4,14 @@ import axios from 'axios'
 import { baseUrl } from '../constants/constants';
 
 const Home = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
     const [cars, setCars] = useState(null);
 
     useEffect( _ => {
-        axios.get(baseUrl + "/cars/all")
+        axios.get(baseUrl + "/cars/all", {headers: {Authorization: user ? user._id : undefined}})
             .then( res => setCars(res.data.data))
             .catch( err => console.log(err));
-    }, [])
+    }, [user])
 
     return (
         <div className='home container-lg'>
@@ -25,6 +26,7 @@ const Home = () => {
                             title={car.title}
                             imageurl={car.image}
                             price={car.price}
+                            liked={car?.liked }
                         />
                     })
                     :
