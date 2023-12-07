@@ -1,8 +1,8 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
+import { useState, useEffect } from "react";
 import {useParams} from "react-router-dom"
+
+import { baseUrl } from "../constants/constants";
 import image from "../assets/DSC07349_zikwky.jpg"
 import image1 from "../assets/images.jpg";
 
@@ -12,9 +12,7 @@ const EventInfo = () => {
 
   useEffect((_) => {
     axios
-      .get(
-        "https://cars-community-backend.onrender.com/events/"+id
-      )
+      .get(baseUrl + "/events/" +id)
       .then((res) => setEventInfo(res.data.data))
       .catch((err) => console.log(err));
   }, [id]);

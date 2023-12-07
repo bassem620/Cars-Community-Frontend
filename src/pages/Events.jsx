@@ -2,8 +2,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 
+import { baseUrl } from '../constants/constants';
+
 const Events = () => {
-    const url="https://cars-community-backend.onrender.com/events/all";
+    const url= baseUrl + "/events/all";
     const [Events,SetEvents]=useState({});
     const [isloading,setisloading]=useState(true);
     const [loaded,setloaded]=useState();
@@ -19,7 +21,7 @@ const Events = () => {
                         setisloading(false);
                         setloaded(false);
                 })
-        },[]
+        },[url]
     )
 
     function getDayName(date = new Date(), locale = 'en-US') {

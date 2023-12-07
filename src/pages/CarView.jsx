@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import '../index.css';
-import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom';
+
+import { baseUrl } from '../constants/constants';
 
 const CarView = () => {
     const {id} = useParams();
     const [car, setCar] = useState(null);
 
     useEffect( _ => {
-        axios.get(`https://cars-community-backend.onrender.com/cars/${id}`)
+        axios.get(`${baseUrl}/cars/${id}`)
             .then( res => setCar(res.data.data))
-            .catch( err => console.log(err));
+            .catch( err => console.log(err.response.data.message));
     }, [id])
-
 
     return (
         car &&
