@@ -14,6 +14,13 @@ function cars({id, title, imageurl, price, liked}) {
             .catch( err => console.log(err.response.data.message));
     }
 
+    const handleDelete = () => {
+        axios.delete(baseUrl + `/cars/deleteCar/${id}`, {
+                headers: {Authorization: user && user.role === "admin" ? user._id : undefined}
+            })
+            .then( _ => window.location.reload())
+            .catch( err => console.log(err?.response?.data?.message));
+    }
 
     return (
     <div className="col-12 col-sm-4 col-lg-3 p-1">
@@ -28,6 +35,12 @@ function cars({id, title, imageurl, price, liked}) {
                         user && user.role === "user" &&
                         <button className='favourite-button btn' onClick={handleLike}>
                             {liked ? "❤️" : "💔"}
+                        </button>
+                    }
+                    {
+                        user && user.role === "admin" &&
+                        <button className='favourite-button btn' onClick={handleDelete}>
+                            🗑️
                         </button>
                     }
                 </div>
