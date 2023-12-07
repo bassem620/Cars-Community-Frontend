@@ -33,6 +33,13 @@ const BookAppointment = () => {
         // Convert date format to mongoDB DateTime format
         const momentInstance = moment(newDate, 'ddd MMM DD YYYY HH:mm:ss ZZ');
         const dateValue = momentInstance.format('YYYY-MM-DDTHH:mm:ss.SSS+00:00');
+        // Chech if selected date is valid
+        const currentDate = moment(new Date(), 'ddd MMM DD YYYY HH:mm:ss ZZ').format('YYYY-MM-DDTHH:mm:ss.SSS+00:00');
+        const isDateValid = dateValue > currentDate;
+        if(!isDateValid) {
+            setError("Invalid date, Enter future date");
+            return;
+        }
         // Submit
         axios.post(baseUrl + "/appointments/addAppointment", {userId: user._id, date: dateValue})
             .then( _ => window.location.reload())
