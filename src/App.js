@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import Search from './pages/Search';
 import BookAppointment from './pages/BookAppointment';
 import Compare from './pages/Compare';
 import Events from './pages/Events';
@@ -27,7 +26,6 @@ function App() {
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/search" element={<Search />}/>
             <Route path="/book-appointment" element={<BookAppointment />}/>
             <Route path="/compare/:car1/:car2?" element={<Compare />} />
             <Route path="/events" element={<Events />} />
