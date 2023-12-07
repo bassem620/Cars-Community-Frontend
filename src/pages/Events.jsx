@@ -1,11 +1,13 @@
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 
 import { baseUrl } from '../constants/constants';
 
 const Events = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
     const url= baseUrl + "/events/all";
+    const navigate = useNavigate();
     const [Events,SetEvents]=useState({});
     const [isloading,setisloading]=useState(true);
     const [loaded,setloaded]=useState();
@@ -28,6 +30,14 @@ const Events = () => {
         return date.toLocaleDateString(locale, {weekday: 'long'}) +" - "+ date.toLocaleDateString(locale, {month: 'short', day: '2-digit'})+" - "+date.toLocaleDateString(locale, {year: "numeric"}) ;
     }
 
+    const handleDelete = (id) => {
+        axios.delete(baseUrl + `/events/deleteEvent/${id}`, {
+                headers: {Authorization: user && user.role === "admin" ? user._id : undefined}
+            })
+            .then( _ => window.location.reload())
+            .catch( err => console.log(err?.response?.data?.message));
+    }
+
     return (
         <div className='events'>
             <h4>Events</h4>
@@ -36,19 +46,27 @@ const Events = () => {
                     isloading === true ? 
                     <h4>Loading Events...</h4> : 
                     (
-                        Events.data === undefined ? 
+                        Events.data ? 
                         loaded === false ? 
                         <h4>Can't Get Events , Maybe Network Problem </h4> : 
                         <h4>No Events</h4> :
                         Events.data.map(
                             (Event)=>(
-                                <Link className='event my-4 text-decoration-none' key={Event._id} to={"/events/" + Event._id}>
-                                    <div className="events-event-inf" key={Event._id}>
-                                        <h5>{Event.title}</h5>
-                                        <span>{Event.location}</span>
-                                        <p>{getDayName(new Date(Event.date))}</p>
+                                <div>
+                                    <div className='event my-4 text-decoration-none' key={Event._id} onClick={ _ => navigate("/events/" + Event._id)}>
+                                        <div className="events-event-inf" key={Event._id}>
+                                            <h5>{Event.title}</h5>
+                                            <span>{Event.location}</span>
+                                            <p>{getDayName(new Date(Event.date))}</p>
+                                        </div>
                                     </div>
-                                </Link>
+                                    {
+                                        user && user.role === "admin" &&
+                                        <button className='favourite-button btn ms-auto' onClick={ _ => handleDelete(Event._id)}>
+                                            🗑️
+                                        </button>
+                                    }
+                                </div>
                             )
                         )
                     )
