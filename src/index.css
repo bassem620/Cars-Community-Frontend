@@ -142,7 +142,6 @@ h3,p{
 
 .compare{
     width: 100%;
-    height: 80vh;
     display: flex;
     flex-direction: row;
     margin: 10px 0px;
@@ -153,7 +152,7 @@ h3,p{
 .compare-part{
     display: flex;
     width: 45%;
-    height: 100%;
+    min-height: 100%;
     background-color: rgba(255, 255, 255, 0.442);
     border-radius: 10px;
     align-items: center;
@@ -162,8 +161,8 @@ h3,p{
     box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.5);
 }
 .compare-part-img{
-    /* height: 350px; */
-    max-width: 350px;
+    max-width: 100%;
+    max-height: 350px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.5);
 }
@@ -179,10 +178,10 @@ h3,p{
     font-size: 18px;
 }
 .compare-title{
-  font-weight: bold;
-  font-size: 42px;
-  transform: rotate(270deg);
-  margin: -20px;
+    font-weight: bold;
+    font-size: 42px;
+    transform: rotate(270deg);
+    margin: -20px;
 }
 
 .favourite-button{
