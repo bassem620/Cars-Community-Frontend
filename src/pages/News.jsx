@@ -21,6 +21,7 @@ const News = () => {
                     news.map(item => (
                         <NewsItem 
                             key={item._id}
+                            id={item._id}
                             title={item.title}
                             body={item.desc}
                             imageUrl={item.image}

@@ -193,6 +193,8 @@ h3,p{
     display:flex!important ;
     justify-content:center!important ;
     align-items:center!important;
+    cursor: pointer !important;
+    pointer-events: all !important;
 }
 .favourite-button svg{
     font-size: 100px !important;
