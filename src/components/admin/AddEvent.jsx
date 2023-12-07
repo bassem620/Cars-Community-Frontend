@@ -61,13 +61,13 @@ const AddEvent = () => {
         <div className="col-12 mt-3 p-3 shadow cardAdd bg-white rounded-3">
             <h2 className="text-center p-1">Add Event</h2>
             {/* line 1 : Title */}
-            <div class="input-group mb-2">
-                <span class="input-group-text" id="inputGroup-sizing-default">
+            <div className="input-group mb-2">
+                <span className="input-group-text" id="inputGroup-sizing-default">
                 Title
                 </span>
                 <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default"
                     value={title}
@@ -75,10 +75,10 @@ const AddEvent = () => {
                 />
             </div>
             {/* Desc */}
-            <div class="input-group mb-2">
-                <span class="input-group-text">description</span>
+            <div className="input-group mb-2">
+                <span className="input-group-text">description</span>
                 <textarea
-                    class="form-control"
+                    className="form-control"
                     aria-label="With textarea"
                     value={desc}
                     onChange={ e => setDesc(e.target.value)}
@@ -86,13 +86,13 @@ const AddEvent = () => {
             </div>
             <div className="d-flex justify-content-center align-items-center flex-wrap">
                 {/* Location */}
-                <div class="input-group mb-2 me-2">
-                    <span class="input-group-text" id="inputGroup-sizing-default">
+                <div className="input-group mb-2 me-2">
+                    <span className="input-group-text" id="inputGroup-sizing-default">
                     Location
                     </span>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         value={location}

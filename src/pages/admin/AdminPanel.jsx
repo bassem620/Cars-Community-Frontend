@@ -9,7 +9,7 @@ const AdminPanel = () => {
     return (
         <div className="admin container-lg my-3 px-4">
             <h2 className="text-center p-1">Admin Panel</h2>
-            <div class="row">
+            <div className="row">
                 {/* Add car */}
                 <AddCar />
                 {/* Add event */}
