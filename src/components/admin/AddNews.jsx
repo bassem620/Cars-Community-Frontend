@@ -35,7 +35,7 @@ const AddNews = () => {
 
     return (
         <div className="col-12 mt-3 p-3 shadow cardAdd bg-white rounded-3">
-            <h2 className="text-center p-1">Add Car</h2>
+            <h2 className="text-center p-1">Add News</h2>
             <div className="row">
                 {/* Image select */}
                 <input type="file" id="image" className='my-2' ref={imagesRef} onChange={ e => setImage(e.target.files[0])}/>
