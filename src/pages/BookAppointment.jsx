@@ -12,7 +12,7 @@ const BookAppointment = () => {
     const [error, setError] = useState(null);
 
     useEffect( () => {
-        axios.post(baseUrl + "/appointments/myAppointments", {userId: user._id})
+        axios.get(baseUrl + "/appointments/myAppointments", {headers: {Authorization: user ? user._id : undefined}})
             .then( res => setExistingBookings(res.data.data))
             .catch( err => console.log(err.response.data.message));
     })
