@@ -13,6 +13,7 @@ import CarView from './pages/CarView';
 import News from './pages/News';
 import Footer from './components/Footer';
 import AdminPanel from './pages/admin/AdminPanel';
+import Appointments from './pages/admin/Appointments';
 
 function App() {
     return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/events/:id" element={<EventInfo />} />
             <Route path="/cars/:id" element={<CarView />} />
             <Route path="/news" element={<News />} />
+            <Route path="/appointments" element={<Appointments />} />
             <Route path="/admin" element={<AdminPanel/>} />
         </Routes>
         {/* Footer */}
