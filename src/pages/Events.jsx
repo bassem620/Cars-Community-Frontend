@@ -50,7 +50,7 @@ const Events = () => {
                         <h4>{loaded ? "No events found" : "Can't Get Events"}</h4> :
                         Events.map(
                             (Event)=>(
-                                <div>
+                                <div key={Event._id}>
                                     <div className='event my-4 text-decoration-none' key={Event._id} onClick={ _ => navigate("/events/" + Event._id)}>
                                         <div className="events-event-inf" key={Event._id}>
                                             <h5>{Event.title}</h5>

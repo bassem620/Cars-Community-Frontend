@@ -116,7 +116,7 @@ const Compare = () => {
                         allcars.data.map(
                             (car) => {
                                 return(
-                                    <Link onClick={() => secCarSelection(car._id)} className='choose-item'>
+                                    <Link key={car._id} onClick={() => secCarSelection(car._id)} className='choose-item'>
                                         <img src={car.image} className='choose-item-img' alt=''/>
                                         <h5>{car.title}</h5>
                                     </Link>

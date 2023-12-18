@@ -38,10 +38,10 @@ const Home = () => {
     return (
         <div className='home container-lg'>
             {/* Search */}
-            <div class="form-inline mt-2 d-flex">
-                <input value={searchText} onChange={ e => setSearchText(e.target.value)} class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button onClick={onClear} class="btn btn-outline-danger my-2 my-sm-0 ms-2" type="button">Clear</button>
-                <button onClick={onSearch} class="btn btn-outline-success my-2 my-sm-0 ms-2" type="button">Search</button>
+            <div className="form-inline mt-2 d-flex">
+                <input value={searchText} onChange={ e => setSearchText(e.target.value)} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button onClick={onClear} className="btn btn-outline-danger my-2 my-sm-0 ms-2" type="button">Clear</button>
+                <button onClick={onSearch} className="btn btn-outline-success my-2 my-sm-0 ms-2" type="button">Search</button>
             </div>
             {/* Search Results */}
             {
