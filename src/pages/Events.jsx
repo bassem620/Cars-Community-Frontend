@@ -8,7 +8,7 @@ const Events = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const url= baseUrl + "/events/all";
     const navigate = useNavigate();
-    const [Events,SetEvents]=useState({});
+    const [Events,SetEvents]=useState(null);
     const [isloading,setisloading]=useState(true);
     const [loaded,setloaded]=useState();
 
@@ -16,7 +16,7 @@ const Events = () => {
         ()=>{
             axios.get(url).then(
                 (Response) =>{
-                    SetEvents(Response.data);
+                    SetEvents(Response.data.data);
                     setisloading(false);
                     setloaded(true);
                 }).catch(function(Error){
@@ -46,11 +46,11 @@ const Events = () => {
                     isloading === true ? 
                     <h4>Loading Events...</h4> : 
                     (
-                        Events.data ? 
+                        Events && 
                         loaded === false ? 
-                        <h4>Can't Get Events , Maybe Network Problem </h4> : 
-                        <h4>No Events</h4> :
-                        Events.data.map(
+                        <h4>Can't Get Events</h4> : 
+                        
+                        Events.map(
                             (Event)=>(
                                 <div>
                                     <div className='event my-4 text-decoration-none' key={Event._id} onClick={ _ => navigate("/events/" + Event._id)}>

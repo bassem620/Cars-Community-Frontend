@@ -74,6 +74,7 @@ const Home = () => {
             <h4 className='fs-3 m-2 text-center'>Cars</h4>
             <div className="row">
                 {
+                    
                     cars && cars.length > 0 ?
                     cars.map( car => {
                         return <Cars
@@ -82,7 +83,7 @@ const Home = () => {
                             title={car.title}
                             imageurl={car.image}
                             price={car.price}
-                            liked={car?.liked }
+                            liked={car?.liked}
                         />
                     })
                     :
