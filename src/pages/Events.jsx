@@ -10,7 +10,7 @@ const Events = () => {
     const navigate = useNavigate();
     const [Events,SetEvents]=useState(null);
     const [isloading,setisloading]=useState(true);
-    const [loaded,setloaded]=useState();
+    const [loaded, setLoaded] = useState(true);
 
     useEffect(
         ()=>{
@@ -18,10 +18,10 @@ const Events = () => {
                 (Response) =>{
                     SetEvents(Response.data.data);
                     setisloading(false);
-                    setloaded(true);
+                    setLoaded(true);
                 }).catch(function(Error){
-                        setisloading(false);
-                        setloaded(false);
+                    setisloading(false);
+                    setLoaded(false);
                 })
         },[url]
     )
@@ -46,10 +46,8 @@ const Events = () => {
                     isloading === true ? 
                     <h4>Loading Events...</h4> : 
                     (
-                        Events && 
-                        loaded === false ? 
-                        <h4>Can't Get Events</h4> : 
-                        
+                        Events && Events.length === 0 ? 
+                        <h4>{loaded ? "No events found" : "Can't Get Events"}</h4> :
                         Events.map(
                             (Event)=>(
                                 <div>
