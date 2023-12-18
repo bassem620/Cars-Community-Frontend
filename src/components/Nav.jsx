@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import gif from "../assets/car-gif-png-1.gif"
 
 import '../index.css';
 
@@ -17,7 +18,7 @@ const Nav = () => {
     return (
         <nav className="navbar navbar-expand-md navbar-dark">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Cars Community <img src='https://www.st-agnes.manchester.sch.uk/wp-content/uploads/2018/11/car-gif-png-1.gif' width="100px" alt="" height="40px"/></Link>
+                <Link className="navbar-brand" to="/">Cars Community <img src={gif} width="100px" alt="" height="40px"/></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
